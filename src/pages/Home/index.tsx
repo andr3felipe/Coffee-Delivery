@@ -18,7 +18,7 @@ import { useContext } from 'react'
 import { CyclesContext } from '../../contexts/CyclesContext'
 
 export function Home() {
-  const { products, setProducts } = useContext(CyclesContext)
+  const { products } = useContext(CyclesContext)
 
   return (
     <HomeContainer>

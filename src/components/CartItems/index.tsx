@@ -3,8 +3,26 @@ import { Minus, Plus, Trash } from 'phosphor-react'
 import { useContext } from 'react'
 import { CyclesContext } from '../../contexts/CyclesContext'
 
-export function CartItems({ id, count, img, price, type, title, subTitle }) {
-  const { cart, setCart } = useContext(CyclesContext)
+interface CartItemsProps {
+  id: number
+  count: number
+  img: string
+  price: number
+  type: string[]
+  title: string
+  subTitle: string
+}
+
+export function CartItems({
+  id,
+  count,
+  img,
+  price,
+  type,
+  title,
+  subTitle,
+}: CartItemsProps) {
+  const { setCart } = useContext(CyclesContext)
 
   function handleCartCountPlus() {
     setCart((state) =>
