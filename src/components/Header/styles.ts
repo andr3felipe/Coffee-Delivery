@@ -42,6 +42,18 @@ export const HeaderContainer = styled.header`
     justify-content: center;
     gap: 12px;
   }
+
+  a {
+    box-shadow: none;
+
+    :visited {
+      color: ${(props) => props.theme['yellow-dark']};
+    }
+
+    &:active {
+      color: ${(props) => props.theme.purple};
+    }
+  }
 `
 
 export const ShoppingCartDiv = styled.div`
@@ -50,4 +62,35 @@ export const ShoppingCartDiv = styled.div`
 
   border-radius: 6px;
   padding: 8px;
+
+  a {
+    box-shadow: none;
+
+    :visited {
+      color: ${(props) => props.theme['yellow-dark']};
+    }
+
+    &:active {
+      color: ${(props) => props.theme.purple};
+    }
+  }
+`
+export const CartItemsCounter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  margin-left: 18px;
+  margin-top: -42px;
+  font-size: 0.75rem;
+  width: 20px;
+  height: 20px;
+
+  font-weight: 700;
+
+  color: ${(props) => props.theme.white};
+  background: ${(props) => props.theme['yellow-dark']};
+
+  border-radius: 1000px;
 `

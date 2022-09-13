@@ -96,14 +96,46 @@ export const ProductCount = styled.div`
     color: ${(props) => props.theme['base-title']};
     line-height: 130%;
   }
+
+  svg {
+    color: ${(props) => props.theme.purple};
+
+    cursor: pointer;
+
+    &:hover {
+      color: ${(props) => props.theme['purple-dark']};
+    }
+  }
+
+  button {
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
 `
 
-export const ShoppingCartIcon = styled.div`
+export const ShoppingCartIcon = styled.button`
   background: ${(props) => props.theme['purple-dark']};
   color: ${(props) => props.theme['base-card']};
 
-  height: 1.375rem;
-
   padding: 8px;
+  border: none;
+  box-shadow: none;
   border-radius: 6px;
+
+  width: 38px;
+  height: 38px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    background: ${(props) => props.theme.purple};
+    transition: 0.2s;
+  }
+
+  &:active {
+    color: green;
+  }
 `

@@ -11,131 +11,15 @@ import {
   ProductsContainer,
 } from './styles'
 
-// SVGS
-import CoffeeCup from '../../assets/coffee-cup.svg'
-import TraditionalExpress from '../../assets/traditional-express.svg'
-import AmericanExpress from '../../assets/american-express.svg'
-import CreamyExpress from '../../assets/creamy-express.svg'
-import IceExpress from '../../assets/ice-express.svg'
-import CoffeeWithMilk from '../../assets/coffee-with-milk.svg'
-import Latte from '../../assets/latte.svg'
-import Capuccino from '../../assets/capuccino.svg'
-import Macchiato from '../../assets/macchiato.svg'
-import Mocaccino from '../../assets/mocaccino.svg'
-import HotMilk from '../../assets/hot-milk.svg'
-import Cubano from '../../assets/cubano.svg'
-import Havaiano from '../../assets/havaiano.svg'
-import Arabe from '../../assets/arabe.svg'
-import Irlandes from '../../assets/irlandes.svg'
-
+import { SVGS } from '../../SVGS/SVGS'
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import { Products } from '../../components/Products'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { CyclesContext } from '../../contexts/CyclesContext'
 
 export function Home() {
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      img: TraditionalExpress,
-      type: ['TRADICIONAL'],
-      title: 'Expresso Tradicional',
-      subTitle: 'O tradicional café feito com água quente e grãos moídos',
-    },
-    {
-      id: 2,
-      img: AmericanExpress,
-      type: ['TRADICIONAL'],
-      title: 'Expresso Americano',
-      subTitle: 'Expresso diluído, menos intenso que o tradicional',
-    },
-    {
-      id: 3,
-      img: CreamyExpress,
-      type: ['TRADICIONAL'],
-      title: 'Expresso Cremoso',
-      subTitle: 'Café expresso tradicional com espuma cremosa',
-    },
-    {
-      id: 4,
-      img: IceExpress,
-      type: ['TRADICIONAL', 'GELADO'],
-      title: 'Expresso Gelado',
-      subTitle: 'Bebida preparada com café expresso e cubos de gelo',
-    },
-    {
-      id: 5,
-      img: CoffeeWithMilk,
-      type: ['TRADICIONAL', 'COM LEITE'],
-      title: 'Café com Leite',
-      subTitle: 'Meio a meio de expresso tradicional com leite vaporizado',
-    },
-    {
-      id: 6,
-      img: Latte,
-      type: ['TRADICIONAL', 'COM LEITE'],
-      title: 'Latte',
-      subTitle:
-        'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-    },
-    {
-      id: 7,
-      img: Capuccino,
-      type: ['TRADICIONAL', 'COM LEITE'],
-      title: 'Capuccino',
-      subTitle:
-        'Bebida com canela feita de doses iguais de café, leite e espuma',
-    },
-    {
-      id: 8,
-      img: Macchiato,
-      type: ['TRADICIONAL', 'COM LEITE'],
-      title: 'Macchiato',
-      subTitle: 'Café expresso misturado com um pouco de leite quente e espuma',
-    },
-    {
-      id: 9,
-      img: Mocaccino,
-      type: ['TRADICIONAL', 'COM LEITE'],
-      title: 'Mocaccino',
-      subTitle: 'Café expresso com calda de chocolate, pouco leite e espuma',
-    },
-    {
-      id: 10,
-      img: HotMilk,
-      type: ['TRADICIONAL', 'COM LEITE'],
-      title: 'Chocolate Quente',
-      subTitle: 'Bebida feita com chocolate dissolvido no leite quente e café',
-    },
-    {
-      id: 11,
-      img: Cubano,
-      type: ['ESPECIAL', 'ALCOÓLICO', 'GELADO'],
-      title: 'Cubano',
-      subTitle:
-        'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    },
-    {
-      id: 12,
-      img: Havaiano,
-      type: ['ESPECIAL'],
-      title: 'Havaiano',
-      subTitle: 'Bebida adocicada preparada com café e leite de coco',
-    },
-    {
-      id: 13,
-      img: Arabe,
-      type: ['ESPECIAL'],
-      title: 'Árabe',
-      subTitle: 'Bebida preparada com grãos de café árabe e especiarias',
-    },
-    {
-      id: 14,
-      img: Irlandes,
-      type: ['ESPECIAL', 'ALCOÓLICO'],
-      title: 'Irlandês',
-      subTitle: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-    },
-  ])
+  const { products, setProducts } = useContext(CyclesContext)
+
   return (
     <HomeContainer>
       <Intro>
@@ -174,7 +58,7 @@ export function Home() {
             </FeaturesCoffee>
           </FeaturesAlign>
         </IntroAlign>
-        <img src={CoffeeCup} alt="" />
+        <img src={SVGS.CoffeeCup} alt="" />
       </Intro>
 
       <ProductsContainer>
@@ -184,7 +68,9 @@ export function Home() {
             <Products
               key={product.id}
               id={product.id}
+              count={product.count}
               img={product.img}
+              price={product.price}
               type={product.type}
               title={product.title}
               subTitle={product.subTitle}

@@ -6,18 +6,95 @@ import {
   ShoppingCartIcon,
   Type,
 } from './styles'
+
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 import { v4 as uuidv4 } from 'uuid'
+import { useContext } from 'react'
+import { CyclesContext } from '../../contexts/CyclesContext'
 
 interface ProductsProps {
   id: number
+  count: number
+  img: string
+  price: number
   type: string[]
   title: string
   subTitle: string
-  img?: string
 }
 
-export function Products({ id, type, title, subTitle, img }: ProductsProps) {
+export function Products({
+  id,
+  count,
+  img,
+  price,
+  type,
+  title,
+  subTitle,
+}: ProductsProps) {
+  const { products, setProducts, cart, setCart } = useContext(CyclesContext)
+
+  function handleCountPlus() {
+    setProducts((state) =>
+      state.map((item) => {
+        if (item.id === id) {
+          return { ...item, count: count + 1 }
+        } else {
+          return item
+        }
+      }),
+    )
+  }
+
+  function handleCountMinus() {
+    if (count) {
+      setProducts((state) =>
+        state.map((item) => {
+          if (item.id === id) {
+            return { ...item, count: count - 1 }
+          } else {
+            return item
+          }
+        }),
+      )
+    }
+  }
+
+  function handleAddCart() {
+    const object = {
+      id,
+      count,
+      img,
+      price,
+      type,
+      title,
+      subTitle,
+    }
+
+    const alreadyInCart = cart.filter((item) => item.id === id)
+
+    console.log('already', alreadyInCart)
+
+    if (alreadyInCart.length === 1) {
+      setCart((state) =>
+        state.map((item) => {
+          if (item.id === id) {
+            return { ...item, count: count + alreadyInCart[0].count }
+          } else {
+            return item
+          }
+        }),
+      )
+    } else if (count) {
+      setCart((state) => [...state, object])
+    }
+  }
+
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+
   return (
     <BaseCard>
       <img src={img} alt="" />
@@ -30,15 +107,22 @@ export function Products({ id, type, title, subTitle, img }: ProductsProps) {
       <p>{subTitle}</p>
       <PriceAlign>
         <Price>
-          <span>R$ </span>9,90
+          <span>R$ </span>
+          {formatter.format(price)}
         </Price>
         <ProductCount>
-          <Minus size={14} color="#8047F8" weight="bold" />
-          <span>1</span>
-          <Plus size={14} color="#8047F8" weight="bold" />
+          <button type="button" title="Minus">
+            <Minus size={14} weight="bold" onClick={handleCountMinus} />
+          </button>
+
+          <span>{count}</span>
+
+          <button type="button" title="Plus">
+            <Plus size={14} weight="bold" onClick={handleCountPlus} />
+          </button>
         </ProductCount>
         <ShoppingCartIcon>
-          <ShoppingCartSimple size={22} weight="fill" />
+          <ShoppingCartSimple size={22} weight="fill" onClick={handleAddCart} />
         </ShoppingCartIcon>
       </PriceAlign>
     </BaseCard>
