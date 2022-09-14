@@ -1,8 +1,12 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { OrderConfirmed, SuccessContainer } from './styles'
 import Illustration from '../../assets/illustration.svg'
+import { useContext } from 'react'
+import { CyclesContext } from '../../contexts/CyclesContext'
 
 export function Success() {
+  const { address } = useContext(CyclesContext)
+
   return (
     <SuccessContainer>
       <OrderConfirmed>
@@ -14,8 +18,12 @@ export function Success() {
               <MapPin size={16} weight="fill" />
             </div>
             <div>
-              Entrega em <strong>Rua João Daniel Martinelli, n.° 102</strong>{' '}
-              Farrapos - Porto Alegre, RS
+              Entrega em
+              <strong>
+                {' '}
+                {address.Rua}, n.° {address.Número}{' '}
+              </strong>
+              {address.Bairro} - {address.Cidade}, {address.UF}
             </div>
           </div>
           <div>
@@ -27,7 +35,7 @@ export function Success() {
           <div>
             <CurrencyDollar size={16} />
             <div>
-              Pagamento na entrega <strong>Cartão de Crédito</strong>
+              Pagamento na entrega <strong> {address.Payment}</strong>
             </div>
           </div>
         </div>

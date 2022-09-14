@@ -48,7 +48,7 @@ export function Cart() {
           </h3>
         </div>
       </CartTotal>
-      <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
+      <ConfirmButton type="submit">CONFIRMAR PEDIDO</ConfirmButton>
     </CartContainer>
   )
 }

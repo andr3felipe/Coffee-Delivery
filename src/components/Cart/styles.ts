@@ -50,6 +50,8 @@ export const ConfirmButton = styled.button`
 
   transition: 0.2s;
 
+  cursor: pointer;
+
   &:hover {
     background: ${(props) => props.theme['yellow-dark']};
     transition: 0.2s;

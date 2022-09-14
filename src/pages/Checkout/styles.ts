@@ -7,6 +7,11 @@ export const CheckoutDiv = styled.div`
   width: 70rem;
   padding: 0 10rem 0 10rem;
   gap: 2rem;
+
+  form {
+    display: flex;
+    gap: 2rem;
+  }
 `
 
 export const CompleteYourOrder = styled.div`
@@ -95,6 +100,100 @@ export const FormAddres = styled.div`
   }
 `
 
+export const FormOld = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  > input {
+    display: block;
+  }
+
+  > div {
+    display: flex;
+    gap: 12px;
+  }
+
+  > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    margin-bottom: 1rem;
+  }
+
+  div ~ div:nth-child(2) > input {
+    width: 100%;
+  }
+
+  div ~ div:nth-child(3) div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+
+    svg {
+      margin-bottom: 1rem;
+      margin-left: 12px;
+    }
+  }
+
+  div ~ div:nth-child(4) div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+
+    svg {
+      margin-bottom: 1rem;
+      margin-left: 12px;
+    }
+  }
+
+  div ~ div:nth-child(5) div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+
+    svg {
+      margin-bottom: 1rem;
+      margin-left: 12px;
+    }
+  }
+
+  div ~ div:nth-child(6) div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+
+    svg {
+      margin-bottom: 1rem;
+      margin-left: 12px;
+    }
+  }
+
+  input {
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 1rem;
+
+    background-color: ${(props) => props.theme['base-input']};
+    border: 1px solid ${(props) => props.theme['base-button']};
+
+    &::placeholder {
+      color: ${(props) => props.theme['base-label']};
+      font-size: 0.875rem;
+    }
+
+    &:focus {
+      border: 1px solid ${(props) => props.theme['yellow-dark']};
+      box-shadow: none;
+    }
+  }
+`
+
 export const ShoppingCartItems = styled.div`
   > div > h3 {
     margin-bottom: 0.9375rem;
@@ -167,6 +266,7 @@ export const PaymentMethod = styled.div`
   gap: 12px;
 
   margin-top: 2rem;
+
   div {
     display: flex;
     background: ${(props) => props.theme['base-button']};
@@ -174,9 +274,6 @@ export const PaymentMethod = styled.div`
 
     border-radius: 6px;
     padding: 16px;
-    gap: 12px;
-
-    flex: 1;
 
     cursor: pointer;
 
@@ -191,5 +288,20 @@ export const PaymentMethod = styled.div`
     svg {
       color: ${(props) => props.theme.purple};
     }
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    flex: 1;
+  }
+
+  label > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
   }
 `

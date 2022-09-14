@@ -31,7 +31,7 @@ export function Products({
   title,
   subTitle,
 }: ProductsProps) {
-  const { products, setProducts, cart, setCart } = useContext(CyclesContext)
+  const { setProducts, cart, setCart } = useContext(CyclesContext)
 
   function handleCountPlus() {
     setProducts((state) =>
@@ -71,8 +71,6 @@ export function Products({
     }
 
     const alreadyInCart = cart.filter((item) => item.id === id)
-
-    console.log('already', alreadyInCart)
 
     if (alreadyInCart.length === 1) {
       setCart((state) =>

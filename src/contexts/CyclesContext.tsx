@@ -11,11 +11,27 @@ interface Coffee {
   subTitle: string
 }
 
+interface Address {
+  CEP: string
+  Rua: string
+  Número: string
+  Complemento?: string
+  Bairro: string
+  Cidade: string
+  UF: string
+  Payment: string
+}
+
 interface CyclesContextType {
   cart: Coffee[]
+  // eslint-disable-next-line no-undef
   setCart: React.Dispatch<React.SetStateAction<Coffee[]>>
   products: Coffee[]
+  // eslint-disable-next-line no-undef
   setProducts: React.Dispatch<React.SetStateAction<Coffee[]>>
+  address: Address
+  // eslint-disable-next-line no-undef
+  setAddress: React.Dispatch<React.SetStateAction<Address>>
 }
 
 interface CyclesContextProviderProps {
@@ -27,18 +43,7 @@ export const CyclesContext = createContext({} as CyclesContextType)
 export function CyclesContextProvider({
   children,
 }: CyclesContextProviderProps) {
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      count: 5,
-      img: SVGS.TraditionalExpress,
-      // eslint-disable-next-line prettier/prettier
-      price: 9.90,
-      type: ['TRADICIONAL'],
-      title: 'Expresso Tradicional',
-      subTitle: 'O tradicional café feito com água quente e grãos moídos',
-    },
-  ])
+  const [cart, setCart] = useState<Coffee[]>([])
 
   const [products, setProducts] = useState([
     {
@@ -186,8 +191,11 @@ export function CyclesContextProvider({
     },
   ])
 
+  const [address, setAddress] = useState({} as Address)
   return (
-    <CyclesContext.Provider value={{ products, setProducts, cart, setCart }}>
+    <CyclesContext.Provider
+      value={{ products, setProducts, cart, setCart, address, setAddress }}
+    >
       {children}
     </CyclesContext.Provider>
   )
