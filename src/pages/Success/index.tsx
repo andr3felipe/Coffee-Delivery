@@ -1,6 +1,6 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { OrderConfirmed, SuccessContainer } from './styles'
-import Illustration from '../../assets/illustration.svg'
+import Delivery from '../../assets/delivery.svg'
 import { useContext } from 'react'
 import { CyclesContext } from '../../contexts/CyclesContext'
 
@@ -40,7 +40,7 @@ export function Success() {
           </div>
         </div>
       </OrderConfirmed>
-      <img src={Illustration} alt="" />
+      <img src={Delivery} alt="" />
     </SuccessContainer>
   )
 }
