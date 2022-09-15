@@ -24,7 +24,7 @@ export const AlignHeader = styled.div`
 
 export const HeaderContainer = styled.header`
   width: 70rem;
-  max-width: 100vw;
+  max-width: 95vw;
   padding: 2rem 10rem;
 
   display: flex;
@@ -53,6 +53,15 @@ export const HeaderContainer = styled.header`
     &:active {
       color: ${(props) => props.theme.purple};
     }
+  }
+
+  @media (max-width: 900px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 450px) {
+    padding: 2rem 0.5rem;
+    font-size: 0.75rem;
   }
 `
 

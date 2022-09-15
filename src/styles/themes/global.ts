@@ -16,11 +16,12 @@ body {
   background: ${(props) => props.theme.background};
   -webkit-font-smoothing: antialiased;
   padding-bottom: 9.8125rem;
+
+
 }
 
 body, input,  button, textarea {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
 }
 `
