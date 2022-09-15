@@ -22,7 +22,7 @@ export function CartItems({
   title,
   subTitle,
 }: CartItemsProps) {
-  const { setCart } = useContext(CyclesContext)
+  const { setCart, cart } = useContext(CyclesContext)
 
   function handleCartCountPlus() {
     setCart((state) =>
@@ -49,7 +49,12 @@ export function CartItems({
   }
 
   function handleRemoveFromCart() {
-    setCart((state) => state.filter((item) => item.id !== id))
+    if (cart.length === 1) {
+      localStorage.removeItem('@coffee-delivery-1.0.0')
+      setCart((state) => state.filter((item) => item.id !== id))
+    } else {
+      setCart((state) => state.filter((item) => item.id !== id))
+    }
   }
 
   const formatter = new Intl.NumberFormat('pt-BR', {

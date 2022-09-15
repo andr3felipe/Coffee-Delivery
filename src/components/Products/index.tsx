@@ -119,8 +119,8 @@ export function Products({
             <Plus size={14} weight="bold" onClick={handleCountPlus} />
           </button>
         </ProductCount>
-        <ShoppingCartIcon>
-          <ShoppingCartSimple size={22} weight="fill" onClick={handleAddCart} />
+        <ShoppingCartIcon onClick={handleAddCart}>
+          <ShoppingCartSimple size={22} weight="fill" />
         </ShoppingCartIcon>
       </PriceAlign>
     </BaseCard>
