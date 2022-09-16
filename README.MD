@@ -1,12 +1,12 @@
 ## PORTUGUÊS
-# Ignite Timer
+# Coffee Delivery
 * [GIF](#GIF)
 * [FEITO COM](#FEITO-COM)
 * [FUNCIONALIDADES](#FUNCIONALIDADES-/-FEATURES)
 * [LINK PARA TESTE DO PROJETO](#LINK-PARA-TESTE-DO-PROJETO-/-LINK-TO-TEST-THE-PROJECT)
 
 ## ENGLISH
-# Ignite Timer
+# Coffee Delivery
 * [GIF](#GIF)
 * [MADE WITH](#MADE-WITH)
 * [FEATURES](#FEATURES)
@@ -14,7 +14,7 @@
 
 
 # GIF
-<img src="src/assets/Pomodoro.gif"/>
+<img src="src/assets/gif/CoffeGIF.gif"/>
 
 
 ### FEITO COM
