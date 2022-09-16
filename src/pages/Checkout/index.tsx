@@ -105,6 +105,7 @@ export function Checkout() {
 
                 <div>
                   <input
+                    maxLength={30}
                     type="text"
                     title="Rua"
                     placeholder="Rua"
@@ -120,6 +121,7 @@ export function Checkout() {
                 <div>
                   <div>
                     <input
+                      maxLength={8}
                       type="text"
                       title="Número"
                       placeholder="Número"
@@ -133,6 +135,7 @@ export function Checkout() {
                   </div>
                   <ComplementoDiv>
                     <ComplementoInput
+                      maxLength={20}
                       type="text"
                       title="Complemento"
                       placeholder="Complemento"
@@ -144,6 +147,7 @@ export function Checkout() {
                 <div>
                   <div>
                     <input
+                      maxLength={20}
                       type="text"
                       title="Bairro"
                       placeholder="Bairro"
@@ -157,6 +161,7 @@ export function Checkout() {
                   </div>
                   <div>
                     <input
+                      maxLength={20}
                       type="text"
                       title="Cidade"
                       placeholder="Cidade"
@@ -170,6 +175,7 @@ export function Checkout() {
                   </div>
                   <div>
                     <input
+                      maxLength={2}
                       type="text"
                       title="UF"
                       placeholder="UF"
