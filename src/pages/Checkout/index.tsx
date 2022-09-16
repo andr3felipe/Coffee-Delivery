@@ -36,9 +36,9 @@ const FormValidationSchema = zod.object({
   Rua: zod.string().min(1, 'Insira a Rua.'),
   Número: zod.string().min(1, 'Insira o Número.'),
   Complemento: zod.string(),
-  Bairro: zod.string().min(1, 'Insira o Bairro.'),
-  Cidade: zod.string().min(1, 'Insira a Cidade.'),
-  UF: zod.string().min(1, 'Insira a UF.'),
+  Bairro: zod.string().min(3, 'Insira o Bairro.'),
+  Cidade: zod.string().min(3, 'Insira a Cidade.'),
+  UF: zod.string().length(2, 'Insira a UF.'),
   Payment: zod.string(),
 })
 
