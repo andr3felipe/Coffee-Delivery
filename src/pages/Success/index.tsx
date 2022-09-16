@@ -23,7 +23,7 @@ export function Success() {
                 {' '}
                 {address.Rua}, n.° {address.Número}{' '}
               </strong>
-              {address.Bairro} - {address.Cidade}, {address.UF}
+              {address.Bairro} - {address.Cidade}, {address.UF.toUpperCase()}
             </div>
           </div>
           <div>

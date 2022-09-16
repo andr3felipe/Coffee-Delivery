@@ -31,6 +31,8 @@ import {
 import { useContext } from 'react'
 import { CyclesContext } from '../../contexts/CyclesContext'
 
+const stringRegex = /[A-Za-z]/g
+
 const FormValidationSchema = zod.object({
   CEP: zod.string().length(8, 'Insira o CEP que deve conter 8 dígitos.'),
   Rua: zod.string().min(1, 'Insira a Rua.'),
@@ -38,7 +40,7 @@ const FormValidationSchema = zod.object({
   Complemento: zod.string(),
   Bairro: zod.string().min(3, 'Insira o Bairro.'),
   Cidade: zod.string().min(3, 'Insira a Cidade.'),
-  UF: zod.string().length(2, 'Insira a UF.'),
+  UF: zod.string().length(2, 'Insira a UF.').regex(stringRegex),
   Payment: zod.string(),
 })
 
