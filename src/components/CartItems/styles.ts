@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CartItem = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
 
   border-bottom: 1px solid ${(props) => props.theme['base-button']};
 
@@ -33,12 +33,18 @@ export const CartItem = styled.div`
   }
 
   @media (max-width: 400px) {
-    justify-content: center;
+    justify-content: space-between;
     gap: 10px;
+
     > div {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      img {
+        height: 7rem;
+        width: 7rem;
+      }
     }
   }
 `
@@ -87,6 +93,17 @@ export const CartItemAlign = styled.div`
         cursor: pointer;
 
         transition: 0.2s;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    div > button {
+      width: 1.8rem;
+      height: 1.5rem;
+
+      svg {
+        transform: scale(1.25);
       }
     }
   }

@@ -52,7 +52,7 @@ type FormValidationSchemaType = zod.infer<typeof FormValidationSchema>
 export function Checkout() {
   const navigate = useNavigate()
 
-  const { setAddress } = useContext(CyclesContext)
+  const { setAddress, setCart } = useContext(CyclesContext)
 
   const { register, handleSubmit, watch, formState } =
     useForm<FormValidationSchemaType>({
@@ -76,6 +76,8 @@ export function Checkout() {
     const object = data
 
     setAddress(object)
+    localStorage.removeItem('@coffee-delivery-1.0.0')
+    setCart([])
     navigate('/checkout/success')
   }
 
