@@ -37,6 +37,10 @@ export const Intro = styled.section`
     margin-top: 16px;
   }
 
+  @media (max-width: 1500px) {
+    padding: 5.875rem 0 6.75rem;
+  }
+
   @media (max-width: 1200px) {
     flex-direction: column;
     height: 100%;

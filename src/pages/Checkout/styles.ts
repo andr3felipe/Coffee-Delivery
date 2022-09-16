@@ -5,12 +5,21 @@ export const CheckoutDiv = styled.div`
   align-items: flex-start;
   margin: 2.5rem auto 0 auto;
   width: 70rem;
+  max-width: 95vw;
   padding: 0 10rem 0 10rem;
   gap: 2rem;
 
-  form {
+  > form {
     display: flex;
     gap: 2rem;
+  }
+
+  @media (max-width: 1500px) {
+    padding: 0;
+    form {
+      flex-direction: column;
+      margin: 0 auto 0 auto;
+    }
   }
 `
 
@@ -23,6 +32,13 @@ export const CompleteYourOrder = styled.div`
     line-height: 130%;
     font-size: 1.125rem;
   }
+
+  @media (max-width: 500px) {
+    > h3 {
+      margin-left: 0.5rem;
+      text-align: center;
+    }
+  }
 `
 
 export const OrderForm = styled.div``
@@ -30,6 +46,7 @@ export const OrderForm = styled.div``
 export const FormAddres = styled.div`
   background: ${(props) => props.theme['base-card']};
   width: 37.5rem;
+  max-width: 80vw;
   padding: 2.5rem 2.5rem 1.5rem 2.5rem;
 
   border-radius: 6px;
@@ -98,6 +115,10 @@ export const FormAddres = styled.div`
   [title~='Cidade'] {
     flex-grow: 1;
   }
+
+  @media (max-width: 500px) {
+    max-width: calc(90vw - 4.5rem);
+  }
 `
 
 export const FormOld = styled.div`
@@ -126,34 +147,57 @@ export const FormOld = styled.div`
     width: 100%;
   }
 
-  div ~ div:nth-child(3) div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0;
+  div ~ div:nth-child(3) {
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
 
     svg {
       margin-bottom: 1rem;
       margin-left: 12px;
     }
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+
+      div > input {
+      }
+    }
   }
 
-  div ~ div:nth-child(4) div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0;
-
+  div ~ div:nth-child(4) {
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
     svg {
       margin-bottom: 1rem;
       margin-left: 12px;
+    }
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+
+      div > input {
+        //bairro input
+        flex: 1;
+      }
+
+      div ~ div ~ div > input {
+        text-align: center;
+      }
     }
   }
 
   div ~ div:nth-child(5) div {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 0;
 
     svg {
@@ -203,21 +247,25 @@ export const ShoppingCartItems = styled.div`
     line-height: 130%;
     font-size: 1.125rem;
   }
+
+  @media (max-width: 750px) {
+    text-align: center;
+    margin: 0 auto 0 auto;
+  }
 `
 
 export const ComplementoInput = styled.input`
   flex: 1;
 
   ~ span {
-    position: absolute;
-    width: 0;
+    position: relative;
   }
 
   &:placeholder-shown ~ span::after {
     content: 'Opcional';
-    position: relative;
-    right: -539px;
-    top: 13px;
+    position: absolute;
+    right: 15px;
+    top: -15px;
 
     font-style: italic;
     line-height: 130%;
@@ -226,11 +274,20 @@ export const ComplementoInput = styled.input`
   }
 `
 
+export const ComplementoDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+`
+
 export const PaymentContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
 
   padding: 40px;
   width: 37.5rem;
+  max-width: 80vw;
 
   border-radius: 6px;
   margin-top: 0.75rem;
@@ -257,6 +314,10 @@ export const PaymentContainer = styled.div`
     margin-top: 2px;
     font-size: 0.875rem;
     margin-left: 30px;
+  }
+
+  @media (max-width: 500px) {
+    max-width: calc(90vw - 70px);
   }
 `
 export const PaymentMethod = styled.div`
@@ -303,5 +364,17 @@ export const PaymentMethod = styled.div`
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
+  }
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+
+    div {
+      width: 50vw;
+    }
+
+    label > div {
+      justify-content: center;
+    }
   }
 `

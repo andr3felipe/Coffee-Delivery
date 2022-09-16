@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CartItem = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
 
   border-bottom: 1px solid ${(props) => props.theme['base-button']};
 
@@ -19,8 +19,8 @@ export const CartItem = styled.div`
   }
 
   > div > img {
-    height: 64px;
-    width: 64px;
+    height: 4rem;
+    width: 4rem;
   }
 
   > div > div {
@@ -31,13 +31,21 @@ export const CartItem = styled.div`
   > h4 {
     padding-right: 4px;
   }
+
+  @media (max-width: 400px) {
+    justify-content: center;
+    gap: 10px;
+    > div {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `
 
 export const CartItemAlign = styled.div`
   display: flex;
-
   margin-top: 8px;
-  padding: 0;
   gap: 8px;
 
   button {
@@ -114,5 +122,3 @@ export const RemoveButton = styled.button`
     color: ${(props) => props.theme.purple};
   }
 `
-
-export const CartSecondToAllItems = styled.div``

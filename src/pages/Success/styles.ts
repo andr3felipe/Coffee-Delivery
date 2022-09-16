@@ -14,6 +14,18 @@ export const SuccessContainer = styled.div`
   img {
     margin-bottom: -14px;
   }
+
+  @media (max-width: 1500px) {
+    flex-direction: column;
+    align-items: center;
+    max-width: 85vw;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    img {
+      max-width: 85vw;
+    }
+  }
 `
 
 export const OrderConfirmed = styled.div`
@@ -38,7 +50,6 @@ export const OrderConfirmed = styled.div`
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    width: 27.875rem;
 
     color: ${(props) => props.theme['base-text']};
 

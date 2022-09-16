@@ -26,6 +26,7 @@ import {
   PaymentMethod,
   ShoppingCartItems,
   FormOld,
+  ComplementoDiv,
 } from './styles'
 import { useContext } from 'react'
 import { CyclesContext } from '../../contexts/CyclesContext'
@@ -64,7 +65,7 @@ export function Checkout() {
     Payment: formState.errors.Payment?.message,
   }
 
-  function handleFormSubmit(data: any) {
+  function handleFormSubmit(data: FormValidationSchemaType) {
     console.log('data', data)
 
     const object = data
@@ -130,14 +131,15 @@ export function Checkout() {
                       </div>
                     )}
                   </div>
-
-                  <ComplementoInput
-                    type="text"
-                    title="Complemento"
-                    placeholder="Complemento"
-                    {...register('Complemento')}
-                  />
-                  <span></span>
+                  <ComplementoDiv>
+                    <ComplementoInput
+                      type="text"
+                      title="Complemento"
+                      placeholder="Complemento"
+                      {...register('Complemento')}
+                    />
+                    <span></span>
+                  </ComplementoDiv>
                 </div>
                 <div>
                   <div>

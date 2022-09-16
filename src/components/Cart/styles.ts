@@ -2,11 +2,18 @@ import styled from 'styled-components'
 
 export const CartContainer = styled.div`
   width: 23rem;
+
+  max-width: 100%;
   padding: 0 2.5rem 2.5rem;
   border-radius: 6px 44px;
   margin-top: 15px;
 
   background: ${(props) => props.theme['base-card']};
+
+  @media (max-width: 500px) {
+    max-width: calc(90vw - 1rem);
+    padding: 0 0.5rem 0.5rem;
+  }
 `
 export const CartTotal = styled.div`
   display: flex;
@@ -55,5 +62,9 @@ export const ConfirmButton = styled.button`
   &:hover {
     background: ${(props) => props.theme['yellow-dark']};
     transition: 0.2s;
+  }
+
+  @media (max-width: 500px) {
+    margin-bottom: 30px;
   }
 `
